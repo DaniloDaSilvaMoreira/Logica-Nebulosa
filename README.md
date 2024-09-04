@@ -7,3 +7,5 @@ Este projeto implementa um Sistema de Análise de Risco de Crédito para um banc
 ### PROPÓSITO
 
 O sistema tem como proposito aprimorar a precisão e a consistência na avaliação de risco de crédito, auxiliando o banco a tomar decisões mais bem informadas ao conceder empréstimos ou crédito aos clientes. O sistema permite que o banco analise cada caso com base em critérios estabelecidos, oferecendo uma avaliação mais detalhada e precisa do nível de risco associado a cada cliente.
+
+### INSTALAÇÃO E EXECUÇÃO DO CODIGO
