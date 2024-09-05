@@ -1,4 +1,4 @@
-### Logica-Nebulosa
+![image](https://github.com/user-attachments/assets/8e362855-9864-4b6f-910d-62d3b02a849a)### Logica-Nebulosa
 
 ### DESCRIÇÃO DO PROJETO
 
@@ -16,3 +16,8 @@ O sistema tem como proposito aprimorar a precisão e a consistência na avaliaç
   .Bom: Clientes com histórico positivo, com poucos ou nenhum atraso nos pagamentos.
   .Regular: Clientes com algum histórico de inadimplência, mas que ainda possuem um score razoável.
   .Ruim: Clientes com histórico ruim de pagamentos, com inadimplências frequentes.
+
+- Renda Mensal:
+  . Alta: Renda significativamente acima da média dos clientes.
+  . Média: Renda que está na faixa média em comparação com outros clientes.
+  . Baixa: Renda abaixo da média.
