@@ -21,3 +21,8 @@ O sistema tem como proposito aprimorar a precisão e a consistência na avaliaç
   . Alta: Renda significativamente acima da média dos clientes.
   . Média: Renda que está na faixa média em comparação com outros clientes.
   . Baixa: Renda abaixo da média.
+
+- Dívida Atual:
+  . Baixa: Dívida que é baixa em relação à renda mensal.
+  . Moderada: Dívida moderada em relação à renda mensal.
+  . Alta: Dívida alta em relação à renda mensal.
