@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/8e362855-9864-4b6f-910d-62d3b02a849a)### Logica-Nebulosa
+### Logica-Nebulosa
 
 ### DESCRIÇÃO DO PROJETO
 
