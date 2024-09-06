@@ -12,10 +12,10 @@ O sistema tem como proposito aprimorar a precisão e a consistência na avaliaç
 
 ### DESCRIÇÃO DAS VARIAVEIS DE ENTRADA (INPUTS)
 - Histórico de Crédito:
-  .Excelente: Clientes com excelente histórico de pagamento, sem registros de inadimplência.
-  .Bom: Clientes com histórico positivo, com poucos ou nenhum atraso nos pagamentos.
-  .Regular: Clientes com algum histórico de inadimplência, mas que ainda possuem um score razoável.
-  .Ruim: Clientes com histórico ruim de pagamentos, com inadimplências frequentes.
+  . Excelente: Clientes com excelente histórico de pagamento, sem registros de inadimplência.
+  . Bom: Clientes com histórico positivo, com poucos ou nenhum atraso nos pagamentos.
+  . Regular: Clientes com algum histórico de inadimplência, mas que ainda possuem um score razoável.
+  . Ruim: Clientes com histórico ruim de pagamentos, com inadimplências frequentes.
 
 - Renda Mensal:
   . Alta: Renda significativamente acima da média dos clientes.
@@ -28,8 +28,8 @@ O sistema tem como proposito aprimorar a precisão e a consistência na avaliaç
   . Alta: Dívida alta em relação à renda mensal.
 
 ### REGRAS FUZZY
-Regra 1: Se o histórico de crédito é Excelente e a dívida atual é Baixa, então o risco é Baixo.
-Regra 2: Se o histórico de crédito é Ruim e a dívida atual é Alta, então o risco é Alto.
-Regra 3: Se o histórico de crédito é Bom, a renda mensal é Média, e a dívida atual é Moderada, então o risco é Médio.
-Regra 4: Se o histórico de crédito é Bom e a renda mensal é Alta e a dívida atual é Moderada, então o risco de crédito é Médio.
-Regra 5: Se o histórico de crédito é Regular e a renda mensal é Média e a dívida atual é Alta, então o risco de crédito é Alto.
+. Regra 1: Se o histórico de crédito é Excelente e a dívida atual é Baixa, então o risco é Baixo.
+. Regra 2: Se o histórico de crédito é Ruim e a dívida atual é Alta, então o risco é Alto.
+. Regra 3: Se o histórico de crédito é Bom, a renda mensal é Média, e a dívida atual é Moderada, então o risco é Médio.
+. Regra 4: Se o histórico de crédito é Bom e a renda mensal é Alta e a dívida atual é Moderada, então o risco de crédito é Médio.
+. Regra 5: Se o histórico de crédito é Regular e a renda mensal é Média e a dívida atual é Alta, então o risco de crédito é Alto.
