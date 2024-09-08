@@ -33,3 +33,9 @@ O sistema tem como proposito aprimorar a precisão e a consistência na avaliaç
 . Regra 3: Se o histórico de crédito é Bom, a renda mensal é Média, e a dívida atual é Moderada, então o risco é Médio.
 . Regra 4: Se o histórico de crédito é Bom e a renda mensal é Alta e a dívida atual é Moderada, então o risco de crédito é Médio.
 . Regra 5: Se o histórico de crédito é Regular e a renda mensal é Média e a dívida atual é Alta, então o risco de crédito é Alto.
+
+### OUTPUT
+O sistema fornece como saída uma classificação do risco de crédito do cliente:
+. Baixo: Baixo risco de inadimplência.
+. Médio: Risco moderado, requerendo atenção.
+. Alto: Alto risco de inadimplência, recomendando cautela na concessão de crédito.
