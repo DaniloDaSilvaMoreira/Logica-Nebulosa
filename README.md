@@ -8,7 +8,14 @@ Este projeto implementa um Sistema de Análise de Risco de Crédito para um banc
 
 O sistema tem como proposito aprimorar a precisão e a consistência na avaliação de risco de crédito, auxiliando o banco a tomar decisões mais bem informadas ao conceder empréstimos ou crédito aos clientes. O sistema permite que o banco analise cada caso com base em critérios estabelecidos, oferecendo uma avaliação mais detalhada e precisa do nível de risco associado a cada cliente.
 
-# INSTALAÇÃO E EXECUÇÃO DO CODIGO⚙️
+# INSTALAÇÃO DO CODIGO/SISTEMA⚙️
+1. Clone o repositório abaixo na sua máquina:
+   git clone https://github.com/DaniloDaSilvaMoreira/Logica-Nebulosa.git
+
+2. Instale as dependências:
+    pip install numpy scikit-fuzzy
+
+### EXECUÇÃO DO CÓDIGO⚙️
 
 # DESCRIÇÃO DAS VARIAVEIS DE ENTRADA (INPUTS)
 **Histórico de Crédito:**
@@ -26,11 +33,11 @@ O sistema tem como proposito aprimorar a precisão e a consistência na avaliaç
   . Alta: Dívida alta em relação à renda mensal.
 
 # REGRAS FUZZY
-**Regra 1:** Se o histórico de crédito é Excelente e a dívida atual é Baixa, então o risco é Baixo.
-**Regra 2:** Se o histórico de crédito é Ruim e a dívida atual é Alta, então o risco é Alto.
-**Regra 3:** Se o histórico de crédito é Bom, a renda mensal é Média, e a dívida atual é Moderada, então o risco é Médio.
-**Regra 4:** Se o histórico de crédito é Bom e a renda mensal é Alta e a dívida atual é Moderada, então o risco de crédito é Médio.
-**Regra 5:** Se o histórico de crédito é Regular e a renda mensal é Média e a dívida atual é Alta, então o risco de crédito é Alto.
+- **Regra 1:** Se o histórico de crédito é Excelente e a dívida atual é Baixa, então o risco é Baixo.
+- **Regra 2:** Se o histórico de crédito é Ruim e a dívida atual é Alta, então o risco é Alto.
+- **Regra 3:** Se o histórico de crédito é Bom, a renda mensal é Média, e a dívida atual é Moderada, então o risco é Médio.
+- **Regra 4:** Se o histórico de crédito é Bom e a renda mensal é Alta e a dívida atual é Moderada, então o risco de crédito é Médio.
+- **Regra 5:** Se o histórico de crédito é Regular e a renda mensal é Média e a dívida atual é Alta, então o risco de crédito é Alto.
 
 # OUTPUT
 O sistema fornece como saída uma classificação do risco de crédito do cliente:
