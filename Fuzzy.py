@@ -4,8 +4,8 @@ from skfuzzy import control as ctrl
 
 # Variáveis de entrada
 historico_credito = ctrl.Antecedent(np.arange(0, 11, 1), 'historico_credito')
-renda_mensal = ctrl.Antecedent(np.arange(0, 11, 1), 'renda_mensal')
-divida_atual = ctrl.Antecedent(np.arange(0, 11, 1), 'divida_atual')
+renda_mensal = ctrl.Antecedent(np.arange(0, 100001, 1000), 'renda_mensal')
+divida_atual = ctrl.Antecedent(np.arange(0, 100001, 1000), 'divida_atual')
 
 # Variável de saída
 risco = ctrl.Consequent(np.arange(0, 11, 1), 'risco')
@@ -17,14 +17,14 @@ historico_credito['regular'] = fuzz.trimf(historico_credito.universe, [2, 5, 8])
 historico_credito['ruim'] = fuzz.trimf(historico_credito.universe, [0, 0, 4])
 
 # Funções de pertinência para a Renda Mensal
-renda_mensal['baixa'] = fuzz.trimf(renda_mensal.universe, [0, 0, 5])
-renda_mensal['media'] = fuzz.trimf(renda_mensal.universe, [3, 5, 7])
-renda_mensal['alta'] = fuzz.trimf(renda_mensal.universe, [5, 10, 10])
+renda_mensal['baixa'] = fuzz.trimf(renda_mensal.universe, [0, 0, 25000])
+renda_mensal['media'] = fuzz.trimf(renda_mensal.universe, [20000, 50000, 75000])
+renda_mensal['alta'] = fuzz.trimf(renda_mensal.universe, [50000, 100000, 100000])
 
 # Funções de pertinência para a Dívida Atual
-divida_atual['baixa'] = fuzz.trimf(divida_atual.universe, [0, 0, 5])
-divida_atual['moderada'] = fuzz.trimf(divida_atual.universe, [3, 5, 7])
-divida_atual['alta'] = fuzz.trimf(divida_atual.universe, [5, 10, 10])
+divida_atual['baixa'] = fuzz.trimf(divida_atual.universe, [0, 0, 25000])
+divida_atual['moderada'] = fuzz.trimf(divida_atual.universe, [20000, 50000, 75000])
+divida_atual['alta'] = fuzz.trimf(divida_atual.universe, [50000, 100000, 100000])
 
 # Funções de pertinência para o Risco
 risco['baixo'] = fuzz.trimf(risco.universe, [0, 0, 5])
@@ -32,20 +32,40 @@ risco['medio'] = fuzz.trimf(risco.universe, [3, 5, 7])
 risco['alto'] = fuzz.trimf(risco.universe, [5, 10, 10])
 
 # Regras fuzzy
-regra1 = ctrl.Rule(historico_credito['excelente'] & divida_atual['baixa'], risco['baixo'])
-regra2 = ctrl.Rule(historico_credito['ruim'] & divida_atual['alta'], risco['alto'])
-regra3 = ctrl.Rule(historico_credito['bom'] & renda_mensal['media'] & divida_atual['moderada'], risco['medio'])
-regra4 = ctrl.Rule(historico_credito['bom'] & renda_mensal['alta'] & divida_atual['moderada'], risco['medio'])
-regra5 = ctrl.Rule(historico_credito['regular'] & renda_mensal['media'] & divida_atual['alta'], risco['alto'])
+regras = [
+    ctrl.Rule(historico_credito['excelente'] & renda_mensal['alta'] & divida_atual['baixa'], risco['baixo']),
+    ctrl.Rule(historico_credito['excelente'] & renda_mensal['media'] & divida_atual['moderada'], risco['medio']),
+    ctrl.Rule(historico_credito['excelente'] & renda_mensal['baixa'] & divida_atual['alta'], risco['medio']),
+    ctrl.Rule(historico_credito['bom'] & renda_mensal['alta'] & divida_atual['baixa'], risco['baixo']),
+    ctrl.Rule(historico_credito['bom'] & renda_mensal['media'] & divida_atual['moderada'], risco['medio']),
+    ctrl.Rule(historico_credito['bom'] & renda_mensal['baixa'] & divida_atual['alta'], risco['alto']),
+    ctrl.Rule(historico_credito['regular'] & renda_mensal['alta'] & divida_atual['baixa'], risco['medio']),
+    ctrl.Rule(historico_credito['regular'] & renda_mensal['media'] & divida_atual['moderada'], risco['medio']),
+    ctrl.Rule(historico_credito['regular'] & renda_mensal['baixa'] & divida_atual['alta'], risco['alto']),
+    ctrl.Rule(historico_credito['ruim'] & renda_mensal['alta'] & divida_atual['baixa'], risco['medio']),
+    ctrl.Rule(historico_credito['ruim'] & renda_mensal['media'] & divida_atual['moderada'], risco['alto']),
+    ctrl.Rule(historico_credito['ruim'] & renda_mensal['baixa'] & divida_atual['alta'], risco['alto']),
+
+    # Regras adicionais: histórico de crédito é maior que a renda e a dívida
+    ctrl.Rule(historico_credito['excelente'] & renda_mensal['baixa'] & divida_atual['baixa'], risco['baixo']),
+    ctrl.Rule(historico_credito['bom'] & renda_mensal['baixa'] & divida_atual['baixa'], risco['baixo']),
+    ctrl.Rule(historico_credito['regular'] & renda_mensal['baixa'] & divida_atual['baixa'], risco['medio']),
+    ctrl.Rule(historico_credito['ruim'] & renda_mensal['baixa'] & divida_atual['baixa'], risco['alto']),
+]
 
 # Sistema de controle
-sistema_controle_risco = ctrl.ControlSystem([regra1, regra2, regra3, regra4, regra5])
+sistema_controle_risco = ctrl.ControlSystem(regras)
 simulacao_risco = ctrl.ControlSystemSimulation(sistema_controle_risco)
 
-# Exemplo de uso: Configurando os valores de entrada
-simulacao_risco.input['historico_credito'] = 8  # Excelente
-simulacao_risco.input['renda_mensal'] = 6       # Média
-simulacao_risco.input['divida_atual'] =  4      # Moderada
+# Input
+historico_credito_usuario = float(input("Digite o valor do Histórico de Crédito [0]Ruim a [10]Excelente: "))
+renda_mensal_usuario = float(input("Digite o valor da Renda Mensal em reais [R$]: "))
+divida_atual_usuario = float(input("Digite o valor da Dívida Atual em reais [R$]: "))
+
+# Configurando valores de entrada
+simulacao_risco.input['historico_credito'] = historico_credito_usuario
+simulacao_risco.input['renda_mensal'] = renda_mensal_usuario
+simulacao_risco.input['divida_atual'] = divida_atual_usuario
 
 # Computando a saída
 simulacao_risco.compute()
@@ -53,7 +73,6 @@ simulacao_risco.compute()
 # Capturando o valor de saída
 valor_risco = simulacao_risco.output['risco']
 
-# Interpretando a classificação
 if valor_risco <= 3:
     classificacao_risco = "Baixo"
 elif 3 < valor_risco <= 7:
