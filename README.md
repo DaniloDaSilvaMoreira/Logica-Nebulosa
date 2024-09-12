@@ -17,9 +17,8 @@ O sistema tem como proposito aprimorar a precisão e a consistência na avaliaç
     pip install numpy scikit-fuzzy
 
 ### EXECUÇÃO DO CÓDIGO⚙️
-1. Execute no terminal os comandos:
-    python Fuzzy.py
-2. Logo após
+1. Execute no terminal o comando: fuzzy.py
+2. Logo após abrirá uma IDE (visual Studio Code), onde deverá iniciar/rodar o codigo e inserir os dados solicitados (histórico de crédito, renda e dívida) para visualizar o resultado (Risco de crédito).
 
 
 # DESCRIÇÃO DAS VARIAVEIS DE ENTRADA (INPUTS)
