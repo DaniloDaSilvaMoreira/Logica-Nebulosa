@@ -10,15 +10,15 @@ O sistema tem como proposito aprimorar a precisão e a consistência na avaliaç
 
 # INSTALAÇÃO DO CODIGO/SISTEMA⚙️
 1. Clone o repositório abaixo na sua máquina:
-   git clone https://github.com/DaniloDaSilvaMoreira/Logica-Nebulosa.git
-   cd Logica-Nebulosa
+   git clone https://github.com/DaniloDaSilvaMoreira/Logica-Nebulosa.git.
 
 2. Instale as dependências:
     pip install numpy scikit-fuzzy
 
 # EXECUÇÃO DO CÓDIGO⚙️
-1. Execute no terminal o comando: fuzzy.py
-2. Logo após abrirá uma IDE (visual Studio Code), onde deverá iniciar/rodar o codigo e inserir os dados solicitados (histórico de crédito, renda e dívida) para visualizar o resultado (Risco de crédito).
+1. Execute no terminal o comando "cd Logica-Nebulosa". Logo após, execute "code ."
+2. Logo após abrirá uma IDE (visual Studio Code).
+3.  Abra o arquivo "Fuzzy.py", onde deverá iniciar/rodar o codigo e inserir os dados solicitados (histórico de crédito, renda e dívida) para visualizar o resultado (Risco de crédito).
 
 
 # DESCRIÇÃO DAS VARIAVEIS DE ENTRADA (INPUTS)▶️
