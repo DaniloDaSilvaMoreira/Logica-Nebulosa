@@ -16,12 +16,12 @@ O sistema tem como proposito aprimorar a precisão e a consistência na avaliaç
 2. Instale as dependências:
     pip install numpy scikit-fuzzy
 
-### EXECUÇÃO DO CÓDIGO⚙️
+# EXECUÇÃO DO CÓDIGO⚙️
 1. Execute no terminal o comando: fuzzy.py
 2. Logo após abrirá uma IDE (visual Studio Code), onde deverá iniciar/rodar o codigo e inserir os dados solicitados (histórico de crédito, renda e dívida) para visualizar o resultado (Risco de crédito).
 
 
-# DESCRIÇÃO DAS VARIAVEIS DE ENTRADA (INPUTS)
+# DESCRIÇÃO DAS VARIAVEIS DE ENTRADA (INPUTS)▶️
 **Histórico de Crédito:**
   . Excelente: Clientes com excelente histórico de pagamento, sem registros de inadimplência.
   . Bom: Clientes com histórico positivo, com poucos ou nenhum atraso nos pagamentos.
@@ -36,20 +36,20 @@ O sistema tem como proposito aprimorar a precisão e a consistência na avaliaç
   . Moderada: Dívida moderada em relação à renda mensal.
   . Alta: Dívida alta em relação à renda mensal.
 
-# REGRAS FUZZY
+# REGRAS FUZZY📊
 - **Regra 1:** Se o histórico de crédito é Excelente e a dívida atual é Baixa, então o risco é Baixo.
 - **Regra 2:** Se o histórico de crédito é Ruim e a dívida atual é Alta, então o risco é Alto.
 - **Regra 3:** Se o histórico de crédito é Bom, a renda mensal é Média, e a dívida atual é Moderada, então o risco é Médio.
 - **Regra 4:** Se o histórico de crédito é Bom e a renda mensal é Alta e a dívida atual é Moderada, então o risco de crédito é Médio.
 - **Regra 5:** Se o histórico de crédito é Regular e a renda mensal é Média e a dívida atual é Alta, então o risco de crédito é Alto.
 
-# OUTPUT
+# OUTPUT✅💻
 O sistema fornece como saída uma classificação do risco de crédito do cliente:
 . Baixo: Baixo risco de inadimplência.
 . Médio: Risco moderado, requerendo atenção.
 . Alto: Alto risco de inadimplência, recomendando cautela na concessão de crédito.
 
-# Tecnologias
+# Tecnologias📲
 . **Python 3.12.5**: Linguagem para o desenvolvimento.
 . **NumPy**: Cálculos matemáticos precisos.
 . **SciKit-Fuzzy**: Biblioteca para implementação da lógica fuzzy.
