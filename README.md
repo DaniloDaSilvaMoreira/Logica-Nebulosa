@@ -11,11 +11,16 @@ O sistema tem como proposito aprimorar a precisão e a consistência na avaliaç
 # INSTALAÇÃO DO CODIGO/SISTEMA⚙️
 1. Clone o repositório abaixo na sua máquina:
    git clone https://github.com/DaniloDaSilvaMoreira/Logica-Nebulosa.git
+   cd Logica-Nebulosa
 
 2. Instale as dependências:
     pip install numpy scikit-fuzzy
 
 ### EXECUÇÃO DO CÓDIGO⚙️
+1. Execute no terminal os comandos:
+    python Fuzzy.py
+2. Logo após
+
 
 # DESCRIÇÃO DAS VARIAVEIS DE ENTRADA (INPUTS)
 **Histórico de Crédito:**
