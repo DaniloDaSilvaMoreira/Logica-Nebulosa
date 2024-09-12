@@ -20,6 +20,11 @@ O sistema tem como proposito aprimorar a precisão e a consistência na avaliaç
 2. Logo após abrirá uma IDE (visual Studio Code).
 3.  Abra o arquivo "Fuzzy.py", onde deverá iniciar/rodar o codigo e inserir os dados solicitados (histórico de crédito, renda e dívida) para visualizar o resultado (Risco de crédito).
 
+## COMO O SISTEMA FOI CONSTRUIDO, FUNCIONAMENTO E EXEMPLOS DE USO🛠️
+1. O sistema de análise de risco de crédito foi construído utilizando lógica fuzzy (ou lógica nebulosa) para avaliar o risco de crédito de clientes. A lógica fuzzy permite modelar incertezas e imprecisões em situações onde a classificação tradicional (como "alta" ou "baixa") pode não ser suficiente. Isso é especialmente útil em cenários como a avaliação de crédito, onde as variáveis podem ter interpretações subjetivas. A construção do sistema foi com base em três variáveis principais: Histórico de Crédito, Renda Mensal e Dívida Atual; além da aplicação de regras fuzzy que são construídas com base em como as diferentes combinações das variáveis de entrada (inputs) que influenciam o risco.
+2. O funcionamento do sistema funciona é a partir do momento que o usuário fornece valores numéricos para as variáveis historico_credito, renda_mensal, e divida_atual. Esses valores são mapeados para seus respectivos conjuntos fuzzy. Por exemplo, se hist_credito = 7.5, ele será parcialmente mapeado para os conjuntos fuzzy "Bom" e "Regular". O sistema aplica as regras fuzzy definidas para determinar os graus de risco associados a cada cenário do cliente. Portanto, o sistema combina os resultados das regras aplicadas e realiza a defuzzificação para calcular um valor de risco, que é a saída final do sistema.
+3. Considere o cenário de exemplo: um cliente com histórico de Crédito: 7.5 (Parcialmente "Bom", parcialmente "Regular"), Renda Mensal: 5000 e Dívida Atual: 3000
+Resultado: O sistema calculará o risco associado a esse cliente com base nas regras fuzzy que se aplicam a esses valores, geraando um risco de credito "baixo", com valor de 2.31 em uma escala de 0 a 10.
 
 ## DESCRIÇÃO DAS VARIAVEIS DE ENTRADA (INPUTS)▶️
 - **Histórico de Crédito:**
