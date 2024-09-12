@@ -45,7 +45,7 @@ regras = [
     ctrl.Rule(historico_credito['ruim'] & renda_mensal['alta'] & divida_atual['baixa'], risco['medio']),
     ctrl.Rule(historico_credito['ruim'] & renda_mensal['media'] & divida_atual['moderada'], risco['alto']),
     ctrl.Rule(historico_credito['ruim'] & renda_mensal['baixa'] & divida_atual['alta'], risco['alto']),
-
+    
     # Regras adicionais: histórico de crédito é maior que a renda e a dívida
     ctrl.Rule(historico_credito['excelente'] & renda_mensal['baixa'] & divida_atual['baixa'], risco['baixo']),
     ctrl.Rule(historico_credito['bom'] & renda_mensal['baixa'] & divida_atual['baixa'], risco['baixo']),
@@ -57,10 +57,41 @@ regras = [
 sistema_controle_risco = ctrl.ControlSystem(regras)
 simulacao_risco = ctrl.ControlSystemSimulation(sistema_controle_risco)
 
-# Input
-historico_credito_usuario = float(input("Digite o valor do Histórico de Crédito [0]Ruim a [10]Excelente: "))
-renda_mensal_usuario = float(input("Digite o valor da Renda Mensal em reais [R$]: "))
-divida_atual_usuario = float(input("Digite o valor da Dívida Atual em reais [R$]: "))
+# Apresentação inicial
+print()
+print("--------------- SISTEMA DE ANÁLISE DE RISCO DO BANCO -----------------")
+print()
+
+# Input com validação para números não negativos
+while True:
+    try:
+        historico_credito_usuario = float(input("Digite o valor do Histórico de Crédito [0]Ruim a [10]Excelente: "))
+        if 0 <= historico_credito_usuario <= 10:
+            break
+        else:
+            print("Valor inválido! Digite um valor entre 0 e 10.")
+    except ValueError:
+        print("Entrada inválida! Por favor, digite um número entre 0 e 10.")
+
+while True:
+    try:
+        renda_mensal_usuario = float(input("Digite o valor da Renda Mensal em reais [R$]: "))
+        if renda_mensal_usuario >= 0:
+            break
+        else:
+            print("Valor inválido! A renda mensal não pode ser negativa.")
+    except ValueError:
+        print("Por favor, digite uma renda R$ numérica positiva.")
+
+while True:
+    try:
+        divida_atual_usuario = float(input("Digite o valor da Dívida Atual em reais [R$]: "))
+        if divida_atual_usuario >= 0:
+            break
+        else:
+            print("Valor inválido! A dívida atual não pode ser negativa.")
+    except ValueError:
+        print("Por favor, digite a divida R$ numérica positiva.")
 
 # Configurando valores de entrada
 simulacao_risco.input['historico_credito'] = historico_credito_usuario
@@ -72,6 +103,7 @@ simulacao_risco.compute()
 
 # Capturando o valor de saída
 valor_risco = simulacao_risco.output['risco']
+porcentagem_risco = (valor_risco / 10) * 100
 
 if valor_risco <= 3:
     classificacao_risco = "Baixo"
@@ -81,4 +113,5 @@ else:
     classificacao_risco = "Alto"
 
 # Resultado
-print(f"Risco de crédito: {valor_risco:.2f} ({classificacao_risco})")
+print(f"Risco de crédito: {porcentagem_risco:.2f}% ({classificacao_risco})")
+print("-----------------------------------------------------------------------")
